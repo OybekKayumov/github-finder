@@ -1,4 +1,3 @@
-import './App.css';
 
 function App() {
   return (
@@ -6,7 +5,7 @@ function App() {
       <h1 className="text-3xl font-bold underline">
         Github Finder App
       </h1>
-      <button className='btn'>Daisy Class Button</button>
+      <button className='btn btn-primary'>Daisy Class Button</button>
     </div>
   );
 }
