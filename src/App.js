@@ -1,6 +1,9 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar.jsx";
 import Footer from "./components/layout/Footer.jsx";
+import Home from "./components/pages/Home.jsx";
+import About from "./components/pages/About.jsx";
+import NotFound from "./components/pages/NotFound.jsx";
 
 function App() {
   return (
