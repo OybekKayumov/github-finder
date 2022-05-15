@@ -17,12 +17,21 @@ function UserResults() {
     })
 
     const data = await response.json();
-    console.log('data: ', data);
+    // console.log('data: ', data);
+
+    setUsers(data);
+    setLoading(false);
   }
 
   return (
-    <div>UserResults</div>
+    <div className='grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2'>
+      UserResults
+    </div>
   )
 }
 
 export default UserResults
+
+// add grid based on different screen size
+/* <div className='grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2'> */
+// xl- extra large, lg-large, md-medium
