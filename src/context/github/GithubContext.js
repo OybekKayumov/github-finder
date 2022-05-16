@@ -68,6 +68,7 @@ export const GithubProvider = ({children}) => {
         loading: state.loading,
         // fetchUsers,
         searchUsers,
+        clearUsers,
       }}
     >
       {children}   
