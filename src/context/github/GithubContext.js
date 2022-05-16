@@ -36,7 +36,8 @@ export const GithubProvider = ({children}) => {
     // setLoading(false);
 
     dispatch({
-      type: 'GET_USERS'
+      type: 'GET_USERS',
+      payload: data,
     })
   }
 
