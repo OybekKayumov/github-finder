@@ -8,10 +8,22 @@ function UserSearch() {
     setText(e.target.value)
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault() 
+    
+    if (text === '') {
+      alert('Please enter username')
+    } else {
+      // search for users
+
+      setText('')
+    }
+  }
+
   return (
     <div className='grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 mb:grid-cols-2 mb-8 gap-8'>
       <div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className='form-control'>
             <div className='relative'>
               <input 
