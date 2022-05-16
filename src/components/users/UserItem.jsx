@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function UserItem({user}) {
+function UserItem({user: { login, avatar_url }}) {
   return (
-    <div>{user.login}</div>
+    <div>{login}</div>
   )
 }
 
