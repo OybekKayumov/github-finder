@@ -15,6 +15,7 @@ export const GithubProvider = ({children}) => {
   // use with useReducer
   const initialState = {
     users: [],
+    user: {},
     // loading: true,
     loading: false,
   }
