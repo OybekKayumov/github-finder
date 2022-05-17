@@ -1,6 +1,7 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Switch } from "react-router-dom";
 import Navbar from "./components/layout/Navbar.jsx";
 import Footer from "./components/layout/Footer.jsx";
+import Alert from "./components/layout/Alert.jsx";
 import Home from "./components/pages/Home.jsx";
 import About from "./components/pages/About.jsx";
 import NotFound from "./components/pages/NotFound.jsx";
@@ -16,6 +17,9 @@ function App() {
             <Navbar />
 
             <main className="container mx-auto px-3 pb-12">
+              
+              <Alert />
+              
               <Routes>
 
                 <Route path="/" element={<Home />} />
