@@ -1,12 +1,14 @@
 import React, { useContext } from 'react'
 import {FaCodepen, FaStore, FaUserFriends, FaUsers} from 'react-icons/fa'
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import GithubContext from '../../context/github/GithubContext'
 import { useParams } from 'react-router-dom';
+import Spinner from '../layout/Spinner'
 
 // function User({match}) {
 function User() {
-  const { getUser, user } = useContext(GithubContext);
+  const { getUser, user, loading } = useContext(GithubContext);
 
   const params = useParams()
 
