@@ -18,7 +18,7 @@ function UserItem({user: { login, avatar_url }}) {
           <h2 className='card-title'>{login}</h2>
           <Link
             className='text-base-content text-opacity-70'
-            to={`/users/${login}`}
+            to={`/user/${login}`}
           >
             Visit Profile
           </Link>
@@ -35,3 +35,5 @@ UserItem.propTypes = {
 }
 
 export default UserItem
+
+// to={`/users/${login}`}
