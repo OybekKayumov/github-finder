@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import GithubContext from '../../context/github/GithubContext'
 import { useParams } from 'react-router-dom';
 import Spinner from '../layout/Spinner'
+import RepoList from '../repos/RepoList'
 
 // function User({match}) {
 function User() {
@@ -145,6 +146,8 @@ function User() {
             </div> 
       </div>
     </div>
+
+    <RepoList />
     </div>
   )
 }
