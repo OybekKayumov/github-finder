@@ -39,11 +39,29 @@ function User() {
             <figure>
               <img src={avatar_url} alt="login image" />
             </figure>
+            <div className='card-body justufy-end'>
+              <h1 className='card-title mb-0'>{name}</h1>
+              <p>{login}</p>
+            </div>
+          </div>
+        </div>
+        <div className='col-span-2'>
+          <h1 className='text-3xl card-title'>
+            {name}
+            <div className='ml-2 mr-1 badge badge-success'>
+              {type}
+            </div>
+            {hireable && (
+              <div className='mx-1 badge badge-info'>Hireable</div>
+            )}
+          </h1>
+          <p>{bio}</p>
+          <div className='mt-4 card-actions'>
+            <a href={html_url} target='_blank' rel='norefferer' className='btn btn-outline'>Visit Github Profile</a>  
 
           </div>
 
         </div>
-
       </div>
       {user.login}
     </div>
