@@ -4,6 +4,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+## Before start app:
+
+- in .env file put your GitHub Token(ghp_token), please:
+
+  REACT_APP_GITHUB_URL = "https://api.github.com"
+  REACT_APP_GITHUB_TOKEN = "ghp_token"
+
 In the project directory, you can run:
 
 ### `npm start`
