@@ -18,7 +18,7 @@ function User() {
   }, [])
 
   const {
-    name, type, avatar_url, location, bio, twitter_username, login, html_url, followers, public_repos, public_gists, hireable
+    name, type, avatar_url, location, bio, twitter_username, login, html_url, followers, public_repos, public_gists, hireable, blog
   } = user
 
   if (loading) {
@@ -66,6 +66,16 @@ function User() {
              <div className='stat'>
                <div className='stat-title text-md'>Location</div>
                <div className='stat-value text-lg'>{location}</div>
+             </div>
+           )}
+           {blog && (
+             <div className='stat'>
+               <div className='stat-title text-md'>Website</div>
+               <div className='stat-value text-lg'>
+                 <a href={`https://{blog}`} target="_blank" rel='noreferrer'>
+                   {blog}
+                 </a>
+               </div>
              </div>
            )}   
         </div>
