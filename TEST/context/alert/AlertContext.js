@@ -1,6 +1,6 @@
 import { createContext, useReducer } from 'react'
 import alertReducer from './AlertReducer'
- 
+
 const AlertContext = createContext()
 
 export const AlertProvider = ({ children }) => {
@@ -8,7 +8,7 @@ export const AlertProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(alertReducer, initialState)
 
-  // set an alert
+  // Set an alert
   const setAlert = (msg, type) => {
     dispatch({
       type: 'SET_ALERT',

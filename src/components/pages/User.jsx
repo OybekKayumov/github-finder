@@ -8,44 +8,44 @@ import Spinner from '../layout/Spinner'
 import RepoList from '../repos/RepoList'
 import { getUser, getUserAndRepos, getUserRepos } from '../../context/github/GithubActions'
 
-// function User({match}) {
 function User() {
-  const { user, loading, repos, dispatch } = useContext(GithubContext);
+  const { user, loading, repos, dispatch } = useContext(GithubContext)
 
   const params = useParams()
 
-  useEffect(() => {
-    // getUser(params.login)
-    // getUserRepos(params.login)
-
-    // get userdata fom actions
-    dispatch({type: 'SET_LOADING'});
-
+  useEffect(() => {    
+    dispatch({ type: 'SET_LOADING' })
     const getUserData = async () => {
-      // const userData = await getUser(params.login)
-      // dispatch({type: 'GET_USER', payload: userData})
-
-      // const userRepoData = await getUserRepos(params.login)
-      // dispatch({type: 'GET_REPOS', payload: userRepoData})
-
       const userData = await getUserAndRepos(params.login)
-      dispatch({type: 'GET_USER_AND_REPOS', payload: userData})
-
+      dispatch({ type: 'GET_USER_AND_REPOS', payload: userData })
     }
 
-    getUserData();
-
+    getUserData()
   }, [dispatch, params.login])
 
   const {
-    name, type, avatar_url, location, bio, twitter_username, login, html_url, followers, public_repos, public_gists, hireable, blog, following,
+    name,
+    type,
+    avatar_url,
+    location,
+    bio,
+    blog,
+    twitter_username,
+    login,
+    html_url,
+    followers,
+    following,
+    public_repos,
+    public_gists,
+    hireable,
   } = user
 
   if (loading) {
     return <Spinner />
   }
-
+  const websiteUrl = blog?.startsWith('http') ? blog : 'https://' + blog
   return (
+    <>
     <div className='w-full mx-auto lg:w-10/12'>
       <div className='mb-4'>
         <Link to='/' className='btn btn-active'>
@@ -91,15 +91,15 @@ function User() {
            {location && (
              <div className='stat'>
                <div className='stat-title text-md'>Location</div>
-               <div className='stat-value text-lg'>{location}</div>
+               <div className='text-lg stat-value'>{location}</div>
              </div>
            )}
            {blog && (
              <div className='stat'>
                <div className='stat-title text-md'>Website</div>
-               <div className='stat-value text-lg'>
-                 <a href={`https://{blog}`} target="_blank" rel='noreferrer'>
-                   {blog}
+               <div className='text-lg stat-value'>
+                 <a href={websiteUrl} target='_blank' rel='noreferrer'>
+                   {websiteUrl}
                  </a>
                </div>
              </div>
@@ -107,10 +107,10 @@ function User() {
            {twitter_username && (
              <div className='stat'>
                <div className='stat-title text-md'>Twitter</div>
-               <div className='stat-value text-lg'>
+               <div className='text-lg stat-value'>
                  <a 
                   href={`https://twitter.com/${twitter_username}`}
-                  target="_blank"
+                  target='_blank'
                   rel='noreferrer'
                 >
                   {twitter_username}
@@ -168,15 +168,8 @@ function User() {
 
     <RepoList repos={repos} />
     </div>
+    </>
   )
 }
 
 export default User
-
-// useEffect(() => {
-
-// }, [])
-
-// make sure you add [] into useEffect, 
-// if here not [] empty array, it will continuously run and it's going to crach you browser.
-// [] empty array makes run only once

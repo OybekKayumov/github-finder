@@ -1,7 +1,6 @@
-import React from 'react'
 import { useState, useContext } from 'react'
 import GithubContext from '../../context/github/GithubContext'
-import AlertContext from '../../context/alert/AlertContext.js'
+import AlertContext from '../../context/alert/AlertContext'
 import { searchUsers } from '../../context/github/GithubActions'
 
 function UserSearch() {
@@ -13,11 +12,10 @@ function UserSearch() {
   const handleChange = (e) => setText(e.target.value)
 
   const handleSubmit = async (e) => {
-    e.preventDefault() 
-    
+    e.preventDefault()
+
     if (text === '') {
-      // alert('Please enter username')
-      setAlert('Please enter username', 'error')
+      setAlert('Please enter something', 'error')
     } else {
       dispatch({ type: 'SET_LOADING' })
       const users = await searchUsers(text)
@@ -33,14 +31,14 @@ function UserSearch() {
         <form onSubmit={handleSubmit}>
           <div className='form-control'>
             <div className='relative'>
-              <input 
+              <input
                 type='text'
-                className='w-full pr-40 bg-orange-200 input input-lg text-black'
-                placeholder='Search User'
+                className='w-full pr-40 bg-gray-200 input input-lg text-black'
+                placeholder='Search'
                 value={text}
                 onChange={handleChange}
               />
-              <button 
+              <button
                 type='submit'
                 className='absolute top-0 right-0 rounded-l-none w-36 btn btn-lg'
               >
@@ -52,9 +50,9 @@ function UserSearch() {
       </div>
       {users.length > 0 && (
         <div>
-          <button 
+          <button
             onClick={() => dispatch({ type: 'CLEAR_USERS' })}
-            className='btn btn-ghost btn-lg' 
+            className='btn btn-ghost btn-lg'
           >
             Clear
           </button>
