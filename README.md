@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was deployed with [Vercel](https://github-finder-phi-five.vercel.app/).
+This project was deployed on [Vercel](https://github-finder-phi-five.vercel.app/).
 
 ## Available Scripts
 
