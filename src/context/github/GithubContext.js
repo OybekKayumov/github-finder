@@ -108,7 +108,7 @@ export const GithubProvider = ({children}) => {
         ...state,
         dispatch,
         // fetchUsers,
-        searchUsers,
+        // searchUsers,
         clearUsers,
         getUser,
         getUserRepos

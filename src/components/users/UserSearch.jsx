@@ -7,7 +7,7 @@ import { searchUsers } from '../../context/github/GithubActions'
 function UserSearch() {
   const [text, setText] = useState('')
 
-  const { users, clearUsers } = useContext(GithubContext)
+  const { users, dispatch, clearUsers } = useContext(GithubContext)
   const { setAlert} = useContext(AlertContext)
 
   const handleChange = (e) => {
@@ -23,7 +23,9 @@ function UserSearch() {
     } else {
       // search for users
       // searchUsers(text)
+      dispatch({type: 'SET_LOADING'})
       const users = await searchUsers(text)
+      dispatch({type: 'GET_USERS', payload: users})
 
       setText('')
     }
