@@ -3,11 +3,12 @@ import { useState, useContext } from 'react'
 import GithubContext from '../../context/github/GithubContext'
 import AlertContext from '../../context/alert/AlertContext.js'
 import { searchUsers } from '../../context/github/GithubActions'
+import { type } from '@testing-library/user-event/dist/type'
 
 function UserSearch() {
   const [text, setText] = useState('')
 
-  const { users, dispatch, clearUsers } = useContext(GithubContext)
+  const { users, dispatch } = useContext(GithubContext)
   const { setAlert} = useContext(AlertContext)
 
   const handleChange = (e) => {
@@ -59,7 +60,7 @@ function UserSearch() {
 
       {users.length > 0 && (
         <div>
-          <button className='btn btn-ghost btn-lg' onClick={clearUsers}>Clear</button>
+          <button className='btn btn-ghost btn-lg' onClick={() => dispatch({type: 'CLEAR_USERS'})}>Clear</button>
         </div>
       )}
     </div>

@@ -2,8 +2,15 @@
 // our component - when calling action then dispatch the action to the reducer
 // passing payload and update user's state 
 
+import axios from "axios"
+
 const GITHUB_URL = process.env.REACT_APP_GITHUB_URL
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN
+
+const github = axios.create({
+  baseURL: GITHUB_URL,
+  headers: { Authorization: `token ${GITHUB_TOKEN}` }
+})
 
 // get search result users
 export const searchUsers = async (text) => {
