@@ -7,14 +7,14 @@ import { searchUsers } from '../../context/github/GithubActions'
 function UserSearch() {
   const [text, setText] = useState('')
 
-  const { users, searchUsers, clearUsers } = useContext(GithubContext)
+  const { users, clearUsers } = useContext(GithubContext)
   const { setAlert} = useContext(AlertContext)
 
   const handleChange = (e) => {
     setText(e.target.value)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault() 
     
     if (text === '') {
@@ -22,7 +22,8 @@ function UserSearch() {
       setAlert('Please enter username', 'error')
     } else {
       // search for users
-      searchUsers(text)
+      // searchUsers(text)
+      const users = await searchUsers(text)
 
       setText('')
     }
