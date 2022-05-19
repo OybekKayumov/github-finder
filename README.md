@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# GitHub User Finder React App
 
 This project was deployed on [Vercel](https://github-finder-phi-five.vercel.app/).
 
